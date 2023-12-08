@@ -1,6 +1,6 @@
-PWD d:\文档\Fin stage TN10\rapport1\Rapport-TP-LaTeX-UTC
+PWD d:\文档\Fin stage TN10\TN10_rapport
 INPUT C:\Users\Francis JI\AppData\Local\MiKTeX\miktex\data\le\pdftex\pdflatex.fmt
-INPUT d:\文档\Fin stage TN10\rapport1\Rapport-TP-LaTeX-UTC\main.tex
+INPUT d:\文档\Fin stage TN10\TN10_rapport\main.tex
 OUTPUT main.log
 INPUT .\report-UTC.cls
 INPUT report-UTC.cls

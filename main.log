@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.5) (preloaded format=pdflatex 2023.6.4)  7 DEC 2023 21:44
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.5) (preloaded format=pdflatex 2023.6.4)  8 DEC 2023 13:31
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"d:/文档/Fin stage TN10/rapport1/Rapport-TP-LaTeX-UTC/main.tex"
-(d:/文档/Fin stage TN10/rapport1/Rapport-TP-LaTeX-UTC/main.tex
+**"d:/文档/Fin stage TN10/TN10_rapport/main.tex"
+(d:/文档/Fin stage TN10/TN10_rapport/main.tex
 LaTeX2e <2022-11-01> patch level 1
 L3 programming layer <2023-05-15> (report-UTC.cls
 Document Class: report-UTC 
@@ -884,7 +884,7 @@ runsystem(del main.aex)...executed.
 
 
 
-d:/文档/Fin stage TN10/rapport1/Rapport-TP-LaTeX-UTC/main.tex:16: Package minted Error: You must have `pygmentize' installed to use this package.
+d:/文档/Fin stage TN10/TN10_rapport/main.tex:16: Package minted Error: You must have `pygmentize' installed to use this package.
 
 See the minted package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -1179,7 +1179,7 @@ No file main.toc.
 \tf@toc=\write7
 \openout7 = `main.toc'.
 
-d:/文档/Fin stage TN10/rapport1/Rapport-TP-LaTeX-UTC/main.tex:36: Undefined control sequence.
+d:/文档/Fin stage TN10/TN10_rapport/main.tex:36: Undefined control sequence.
 \f@nch@orh ->\theUV 
                     \strut 
 l.36 \newpage
@@ -1200,7 +1200,7 @@ LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 11
  (E:\MiKTeX\tex/latex/lm\ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 ))
-d:/文档/Fin stage TN10/rapport1/Rapport-TP-LaTeX-UTC/main.tex:39: Undefined control sequence.
+d:/文档/Fin stage TN10/TN10_rapport/main.tex:39: Undefined control sequence.
 \f@nch@orh ->\theUV 
                     \strut 
 l.39 \newpage
@@ -1217,7 +1217,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has b
                    \relax 
 l.39 \newpage
               [1{E:/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.enc}{E:/MiKTeX/fonts/enc/dvips/lm/lm-ts1.enc}] (src/Introduction.tex)
-d:/文档/Fin stage TN10/rapport1/Rapport-TP-LaTeX-UTC/main.tex:42: Undefined control sequence.
+d:/文档/Fin stage TN10/TN10_rapport/main.tex:42: Undefined control sequence.
 \f@nch@orh ->\theUV 
                     \strut 
 l.42 \newpage
@@ -1338,7 +1338,7 @@ File: ./Graphismes-UTC/logos/Amazon/equipe.pdf Graphic file (type pdf)
 Package pdftex.def Info: ./Graphismes-UTC/logos/Amazon/equipe.pdf  used on input line 221.
 (pdftex.def)             Requested size: 364.19664pt x 281.4262pt.
 )
-d:/文档/Fin stage TN10/rapport1/Rapport-TP-LaTeX-UTC/main.tex:45: Undefined control sequence.
+d:/文档/Fin stage TN10/TN10_rapport/main.tex:45: Undefined control sequence.
 \f@nch@orh ->\theUV 
                     \strut 
 l.45 \newpage
@@ -1412,7 +1412,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 [13 <./Graphismes-UTC/logos/Amazon/NUTS-2-ES.pdf>])
-d:/文档/Fin stage TN10/rapport1/Rapport-TP-LaTeX-UTC/main.tex:49: Undefined control sequence.
+d:/文档/Fin stage TN10/TN10_rapport/main.tex:49: Undefined control sequence.
 \f@nch@orh ->\theUV 
                     \strut 
 l.49 \end{document}
@@ -1425,7 +1425,7 @@ and I'll forget about whatever was undefined.
 
 [14{E:/MiKTeX/fonts/enc/dvips/lm/lm-mathit.enc}]
 
-d:/文档/Fin stage TN10/rapport1/Rapport-TP-LaTeX-UTC/main.tex:49: LaTeX Error: \begin{itemize} on input line 87 ended by \end{document}.
+d:/文档/Fin stage TN10/TN10_rapport/main.tex:49: LaTeX Error: \begin{itemize} on input line 87 ended by \end{document}.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
@@ -1455,14 +1455,14 @@ Package rerunfilecheck Info: Checksums for `main.out':
 ### bottom level 
 Here is how much of TeX's memory you used:
  31716 strings out of 476410
- 590914 string characters out of 5805512
+ 590625 string characters out of 5805512
  1865845 words of memory out of 5000000
  51354 multiletter control sequences out of 15000+600000
  577941 words of font info for 69 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 114i,12n,131p,1048b,916s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 114i,12n,131p,1031b,916s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <E:/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><E:/MiKTeX/fonts/type1/public/lm/lmcsc10.pfb><E:/MiKTeX/fonts/type1/public/lm/lmmi12.pfb><E:/MiKTeX/fonts/type1/public/lm/lmr12.pfb><E:/MiKTeX/fonts/type1/public/lm/lmr17.pfb><E:/MiKTeX/fonts/type1/public/lm/lmri12.pfb><E:/MiKTeX/fonts/type1/public/lm/lmsy10.pfb>
-Output written on main.pdf (17 pages, 1085859 bytes).
+Output written on main.pdf (17 pages, 1085922 bytes).
 PDF statistics:
  458 PDF objects out of 1000 (max. 8388607)
  115 named destinations out of 1000 (max. 500000)
