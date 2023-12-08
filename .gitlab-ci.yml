@@ -1,0 +1,18 @@
+variables:
+  GIT_SUBMODULE_STRATEGY: normal
+
+pages:
+  image: blang/latex
+  script:
+    - apt-get update --yes
+    - apt-get install imagemagick --yes
+    - make prepare_deploy
+    - mv deploy public
+  artifacts:
+    paths:
+      - public
+    expire_in: 1 hour
+  only:
+    - master
+  tags:
+    - docker

@@ -1,0 +1,88 @@
+\babel@toc {french}{}\relax 
+\contentsline {paragraph}{}{1}{section*.3}%
+\contentsline {paragraph}{}{1}{section*.4}%
+\contentsline {paragraph}{}{1}{section*.5}%
+\contentsline {paragraph}{}{1}{section*.6}%
+\contentsline {paragraph}{}{1}{section*.7}%
+\contentsline {subsection}{\numberline {0.1}Une sous-section}{1}{subsection.0.1}%
+\contentsline {subsection}{\numberline {0.2}Une autre sous-section}{1}{subsection.0.2}%
+\contentsline {subsubsection}{\numberline {0.2.1}Une sous-sous-section}{1}{subsubsection.0.2.1}%
+\contentsline {subsubsection}{\numberline {0.2.2}Une autre sous-sous-section}{1}{subsubsection.0.2.2}%
+\contentsline {paragraph}{Un paragraphe}{1}{section*.10}%
+\contentsline {subparagraph}{Un sous-paragraphe}{1}{section*.11}%
+\contentsline {section}{Une section non numérotée}{1}{section*.12}%
+\contentsline {paragraph}{}{2}{section*.14}%
+\contentsline {paragraph}{}{2}{section*.15}%
+\contentsline {paragraph}{}{2}{section*.16}%
+\contentsline {paragraph}{}{2}{section*.17}%
+\contentsline {paragraph}{}{2}{section*.18}%
+\contentsline {section}{\numberline {1}Présentation générale}{3}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Entreprise}{3}{subsection.1.1}%
+\contentsline {subsubsection}{\numberline {1.1.1}Histoire d'Amazon}{3}{subsubsection.1.1.1}%
+\contentsline {paragraph}{}{3}{section*.19}%
+\contentsline {paragraph}{}{3}{section*.20}%
+\contentsline {paragraph}{}{3}{section*.21}%
+\contentsline {paragraph}{}{3}{section*.22}%
+\contentsline {paragraph}{}{3}{section*.23}%
+\contentsline {paragraph}{}{3}{section*.25}%
+\contentsline {subsubsection}{\numberline {1.1.2}Domaines d'activité et ses compétences}{3}{subsubsection.1.1.2}%
+\contentsline {paragraph}{}{4}{section*.26}%
+\contentsline {subsubsection}{\numberline {1.1.3}Ses filiales en Europe}{4}{subsubsection.1.1.3}%
+\contentsline {paragraph}{}{4}{section*.28}%
+\contentsline {paragraph}{}{4}{section*.29}%
+\contentsline {paragraph}{}{4}{section*.30}%
+\contentsline {paragraph}{}{6}{section*.31}%
+\contentsline {subsubsection}{\numberline {1.1.4}Son statut au marché}{6}{subsubsection.1.1.4}%
+\contentsline {paragraph}{}{6}{section*.33}%
+\contentsline {paragraph}{}{6}{section*.34}%
+\contentsline {paragraph}{}{6}{section*.35}%
+\contentsline {paragraph}{}{6}{section*.36}%
+\contentsline {subsubsection}{\numberline {1.1.5}Ses impacts}{6}{subsubsection.1.1.5}%
+\contentsline {paragraph}{}{6}{section*.38}%
+\contentsline {paragraph}{}{7}{section*.39}%
+\contentsline {paragraph}{}{7}{section*.40}%
+\contentsline {paragraph}{}{7}{section*.41}%
+\contentsline {paragraph}{}{7}{section*.42}%
+\contentsline {paragraph}{}{7}{section*.43}%
+\contentsline {paragraph}{}{7}{section*.44}%
+\contentsline {paragraph}{}{7}{section*.45}%
+\contentsline {paragraph}{}{7}{section*.46}%
+\contentsline {paragraph}{}{8}{section*.47}%
+\contentsline {subsubsection}{\numberline {1.1.6}Ses concurrents}{8}{subsubsection.1.1.6}%
+\contentsline {paragraph}{}{8}{section*.48}%
+\contentsline {paragraph}{}{8}{section*.49}%
+\contentsline {paragraph}{}{8}{section*.50}%
+\contentsline {subsubsection}{\numberline {1.1.7}Son succès pendant la pandémie}{8}{subsubsection.1.1.7}%
+\contentsline {paragraph}{}{8}{section*.51}%
+\contentsline {paragraph}{}{8}{section*.52}%
+\contentsline {paragraph}{}{8}{section*.53}%
+\contentsline {paragraph}{}{8}{section*.54}%
+\contentsline {paragraph}{}{9}{section*.55}%
+\contentsline {paragraph}{}{9}{section*.56}%
+\contentsline {subsection}{\numberline {1.2}Equipe}{9}{subsection.1.2}%
+\contentsline {subsubsection}{\numberline {1.2.1}Mission}{9}{subsubsection.1.2.1}%
+\contentsline {paragraph}{}{9}{section*.57}%
+\contentsline {paragraph}{}{9}{section*.58}%
+\contentsline {paragraph}{}{9}{section*.59}%
+\contentsline {paragraph}{}{9}{section*.60}%
+\contentsline {section}{\numberline {2}Présentation du sujet}{10}{section.2}%
+\contentsline {paragraph}{}{10}{section*.62}%
+\contentsline {paragraph}{}{10}{section*.63}%
+\contentsline {subsection}{\numberline {2.1}Connaissances préalables}{10}{subsection.2.1}%
+\contentsline {paragraph}{}{10}{section*.64}%
+\contentsline {paragraph}{}{10}{section*.65}%
+\contentsline {paragraph}{}{11}{section*.66}%
+\contentsline {paragraph}{}{11}{section*.67}%
+\contentsline {subsection}{\numberline {2.2}Projet principal: Projet Möbius}{11}{subsection.2.2}%
+\contentsline {paragraph}{}{11}{section*.68}%
+\contentsline {subsection}{\numberline {2.3}Redéfinition des régions}{12}{subsection.2.3}%
+\contentsline {subsubsection}{\numberline {2.3.1}Contexte}{12}{subsubsection.2.3.1}%
+\contentsline {paragraph}{}{12}{section*.69}%
+\contentsline {paragraph}{}{12}{section*.70}%
+\contentsline {paragraph}{}{12}{section*.71}%
+\contentsline {paragraph}{}{13}{section*.73}%
+\contentsline {subsubsection}{\numberline {2.3.2}Objectifs}{13}{subsubsection.2.3.2}%
+\contentsline {paragraph}{}{14}{section*.75}%
+\contentsline {paragraph}{}{14}{section*.76}%
+\contentsline {subparagraph}{Un sous-paragraphe}{14}{section*.77}%
+\contentsline {section}{Une section non numérotée}{14}{section*.78}%

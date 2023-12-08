@@ -1,0 +1,7 @@
+main.*
+!main.tex
+
+build
+*.zip
+
+*.png

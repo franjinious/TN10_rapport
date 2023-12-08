@@ -1,0 +1,49 @@
+\documentclass{report-UTC}
+% !TeX TXS-program:compile = txs:///pdflatex/[--shell-escape]
+\usepackage{minted}
+\usepackage{graphicx}
+\usepackage{subcaption}
+% Pour retirer le thème couleur UTC,
+%   Commenter la ligne précédente
+%   Décommenter la ligne dessous
+% \documentclass[noUTCcolors]{report-UTC}
+
+
+\title{Redéfinition des régions}
+%\UV{Amazon EU S.A.R.L} %Nom de l'UV
+\author{Pengyu {\sc ji}} %{\sc Nom} pour écrire en petites capitales
+
+\begin{document}
+
+%\onehalfspacing  % 设置1.5倍行距
+
+\subfile{src/titlePage}
+%\tableofcontents{} %Commenter/supprimer pour enlever la table des matières
+
+
+% Décommenter les trois lignes ci-dessous pour sauter une page après la table des matières, et mettre celle-ci sur une page sans en-tête, pied de page et numéro (recommandé)
+
+\thispagestyle{empty}
+%\setcounter{page}{0}
+
+\newpage
+\subfile{src/Remerciements}
+
+\newpage
+\tableofcontents{}
+\setcounter{page}{0}
+
+\newpage
+\subfile{src/acronyme}
+
+\newpage
+\subfile{src/Introduction}
+
+\newpage
+\subfile{src/entreprise}
+
+\newpage
+\subfile{src/sujet}
+
+\[ \star \quad \star \quad \star \]
+\end{document}

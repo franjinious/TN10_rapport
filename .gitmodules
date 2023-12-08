@@ -1,0 +1,3 @@
+[submodule "Graphismes-UTC"]
+	path = Graphismes-UTC
+	url = ../../Graphismes-UTC.git
