@@ -35,26 +35,31 @@ Selon le passage entre ces centres, nous pouvons diviser le processus de livrais
     \item \textbf{Last mile}: Le dernier kilomètre du processus de livraison. Il s'agit du passage entre le DS et le client.
 \end{itemize}
 
-Il faut tenir en compte que tous les trois passages vont engendrer des coûts. Par exemple, le passage entre le FC et le SC va engendrer des coûts de transport, et le passage entre le SC et le DS va engendrer des coûts de tri.
+Il faut tenir en compte que tous les trois passages vont engendrer des coûts. Par exemple, le passage entre le FC et le SC va engendrer des coûts de transport, et le passage entre le SC et le DS va engendrer des coûts de tri. Dans un cas spécific, le colis peut directement être expédié depuis le FC à le DS, sans passer par un SC. Nous l'appelons \textbf{DI}, acronyme de \textbf{Direct Injection}.
 
 \subsection{Projet principal: Projet Möbius}
 \paragraph{}
 \vspace{-2em}
 Le \textbf{Placement system} utilisent les coûts de transport réels et la vitesse historique à partir de la période des trois dernières semaines la plus récente. En tant que tels, les systèmes de placement ne sont pas conscients des éventuels changements dans la conception du réseau de transport. Par conséquent, le \textbf{Placement system} n'est pas en mesure de réagir rapidement aux changements de conception du réseau de transport. Il a tendance de placer les stocks d'un même produit dans le même FC, à la place de les placer dans des FC différents. 
+\paragraph{}
+\vspace{-2em}
+En examinant les stations DIG1 et DRM2 dans la zone statistique métropolitaine de Londres (MSA), les deux sont directement connectées à LCY2 et LCY3 (Figure suivante) avec une heure limite de commande à minuit et des coûts d'expédition similaires. 
+Le \textbf{Placement system} ne sépare pas les stock des deux type de produits dans les deux FC. 
 
-Une liste non ordonnée :
-\begin{itemize}
-    \item Un élément de niveau 1;
-    \begin{itemize}
-        \item Un élément de niveau deux
-        \begin{itemize}
-            \item Un élément de niveau trois;
-            \item Un second élément de niveau trois.
-        \end{itemize}
-        \item Retour au niveau deux.
-    \end{itemize}
-    \item Un autre élément de niveau 1.
-\end{itemize}
+\paragraph{}
+\vspace{-2em}
+Cette décision, entraînant une diminution des stocks partagés entre LCY2 et LCY3, nous oblige à maintenir des voies directes (DIs) à partir des deux centres de traitement (FCs) vers les deux sites de distribution (DS). Cependant, si nos systèmes recommandaient de diviser les colis et de les répartir pour augmenter la disponibilité à LCY2 et LCY3, il serait probablement possible de retirer deux DIs en passant le colis par un SC(Figure de droite).
+
+\paragraph{}
+\vspace{-2em}
+Après la répartition, nous avons des stocks des deux produits dans tous les deux FC. Selon la distance, les coûts \texttt{b} et \texttt{c} deviendraient plus faibles. Alors que les coûts \texttt{a} et \texttt{d} deviendraient plus élevés. Les avantages liés aux coûts de transport longue distance compenseraient alors l'impact négatif sur les coûts et la vitesse de la chaîne logistique.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\linewidth]{./Graphismes-UTC/logos/Amazon/mobius schema 1.pdf}\hfill
+    %\vspace{-1em}
+    \caption{Un exemple des stocks distribués}
+\end{figure}
 
 \subsection{Redéfinition des régions}
 \subsubsection{Contexte}
@@ -72,6 +77,7 @@ Il existe trois niveaux de NUTS, qui sont définis comme suit:
     \item NUTS 1: Les régions de niveau 1 sont les régions les plus grandes. Elles sont utilisées pour les comparaisons entre pays. Il y a 98 régions de niveau 1 en Europe.
     \item NUTS 2: Les régions de niveau 2 sont les régions intermédiaires. Elles sont utilisées pour les comparaisons entre régions. Il y a 276 régions de niveau 2 en Europe.
     \item NUTS 3: Les régions de niveau 3 sont les régions les plus petites. Elles sont utilisées pour les comparaisons entre régions. Il y a 1342 régions de niveau 3 en Europe.
+\end{itemize}
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.45\linewidth]{./Graphismes-UTC/logos/Amazon/NUTS1.pdf}\hfill
@@ -93,7 +99,13 @@ Nous pouvons relever les problèmes suivants:
         \caption{Plan de la NUTS1/2 en Espagne}
     \end{figure}
     \item Parmi les NUTS1, nous obervons des régions assez longues. Dans ce cas-là, il se pourrait que les communes aux extrémités d'une région soient plus proches d'un autre FC situé dans une autre région que de la leur. Par exemple, la région ES52 en Espagne est très longue, et les communes aux extrémités de cette région peut être couvert par un autre dans une autre région. Par contre, le système actuel ne permet pas de prendre en compte ce genre de situation. Ce dernier attribue encore ces communes au FC de ES52.
-    
+\end{itemize}
+\paragraph{}
+\vspace{-2em}
+En plus, le \textbf{Placement system} agrègent les coûts de transport et la vitesse au niveau du code géographique NUTS1. En général, il y a généralement 10 codes NUTS1 dans chaque pays de l'Union européenne, tandis que la granularité pertinente pour le réseau de transport est le niveau de la station de livraison.
+\paragraph{}
+\vspace{-2em}
+En ne considérant que la connectivité moyenne agrégée au niveau NUTS1, les systèmes ratent l'opportunité d'obtenir une exécution moins chère/plus rapide pour les sous-régions.
 \subsubsection{Objectifs}
 \paragraph{}
 \vspace{-2em}
@@ -101,6 +113,7 @@ L'objectif, dans ce cas-là, comprend deux aspects principaux:
     \begin{itemize}
     \item Redéfinir les régions de vente pour mieux répondre aux exigences opérationnelles et à la dynamique du marché.
     \item Créer un environnement plus propice au projet principal, lui permettant de s'adapter de manière plus flexible aux exigences du marché et aux défis opérationnels.
+    \end{itemize}
 \paragraph{}
 \vspace{-2em}
 \subparagraph{Un sous-paragraphe}
