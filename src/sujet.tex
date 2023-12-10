@@ -106,16 +106,101 @@ En plus, le \textbf{Placement system} agrègent les coûts de transport et la vi
 \paragraph{}
 \vspace{-2em}
 En ne considérant que la connectivité moyenne agrégée au niveau NUTS1, les systèmes ratent l'opportunité d'obtenir une exécution moins chère/plus rapide pour les sous-régions.
+\paragraph{}
+\vspace{-2em}
+Par exemple, en France, il y a 13 codes NUTS1. Cependant, il y a 25 stations de livraison. En agrégeant les coûts de transport et la vitesse au niveau NUTS1, le système ne peut pas prendre en compte les différences entre les stations de livraison.
+\paragraph{}
+\vspace{-2em}
+Il est donc nécessaire de redéfinir les régions à un niveau plus fin, pour que les coûts de transport et la vitesse puissent être agrégés au niveau de la station de livraison.
+
 \subsubsection{Objectifs}
 \paragraph{}
 \vspace{-2em}
+Lorsqu'un FC est choisi d'être le principal FC d'une région pour satisfaire les commandes de cette dernière, le FC devient le \textbf{Mothership} de cette région.
 L'objectif, dans ce cas-là, comprend deux aspects principaux:
     \begin{itemize}
-    \item Redéfinir les régions de vente pour mieux répondre aux exigences opérationnelles et à la dynamique du marché.
-    \item Créer un environnement plus propice au projet principal, lui permettant de s'adapter de manière plus flexible aux exigences du marché et aux défis opérationnels.
+    \item Assurer que chaque FC est utilisé en tant que \textbf{Mothership}.
+    \item Assurer que chaque code postal dispose d'au moins un \textbf{Mothership}. 
     \end{itemize}
 \paragraph{}
 \vspace{-2em}
+En fin de compte, notre objectif est de trouver un centre de distribution principal (\textbf{Mothership}) pour l'ensemble des codes postaux des pays de l'EU5 (la France, l'Allemagne, l'Espagne, l'Italie et le Royaume-Uni). Dans chaque pays, les codes postaux partageant le même mothership deviennent ainsi une nouvelle région, avec chaque mothership optimisant la distance et le coût de livraison.
+
+\subsection{Planning}
+\paragraph{}
+\vspace{-2em}
+La première phase implique de regrouper les données d'entrée des modèles, d'exécuter ces modèles, puis de comparer les résultats afin de sélectionner le meilleur modèle pour nos besoins.
+\paragraph{}
+\vspace{-2em}
+Une fois que nous avons choisi le modèle, il a été nécessaire de modifier et affiner les paramètres d'entrée, analyser les résultats générés, afin d'ajuster le modèle de manière à obtenir les résultats les plus satisfaisants pour nos besoins.
+
+\paragraph{}
+\vspace{-2em}
+Au cours du déroulement, certaines tâches pouvaient être réalisées simultanément. Par exemple, le développement de l'outil et l'exécution du modèle, car nous disposions déjà des résultats des modèles avec des données d'entrée différentes de celles que nous avions prévues. 
+
+\paragraph{}
+\vspace{-2em}
+De plus, les sous-tâches de l'exécution des modèles s'étendent sur toute la période, car ce sont des tâches récurrentes. Chaque fois que nous obtenions une nouvelle version des résultats, il était nécessaire de les évaluer et de les analyser. Grâce à ces analyses, nous pouvions identifier ce qui devait être modifié. Nous avons répété ces tâches jusqu'à ce que les résultats nous satisfassent.
+\begin{figure}[H]
+    \centering
+    \includegraphics[angle = 270, width=1\linewidth]{./Graphismes-UTC/logos/Amazon/RDS (2).pdf}\hfill
+    %\vspace{-1em}
+    \caption{Le planning du projet}
+\end{figure}
+
+\clearpage
+\paragraph{}
+\vspace{-2em}
+En raison de mon expérience antérieure, j'ai anticipé des imprévus dès le début du développement du projet, et la réalité a confirmé mes prévisions. Par exemple, j'ai rencontré des difficultés lors de la mise en place de notre application sur la plateforme, car nous devions répondre à des exigences internes pour déclarer tous les packages utilisés ainsi que la version, en plus de respecter les formats d'entrée/sortie spécifiques.
+\paragraph{}
+\vspace{-2em}
+D'ailleurs, des retards ont été observés lorsque nous attendions les données de la part de nos parties prenantes, entraînant ainsi des retards de notre côté. Nous avons dû nous adapter afin d'ajuster le planning pour le rendre plus conforme à la réalité.
+\paragraph{}
+\vspace{-2em}
+Il est essentiel de reconnaître que le planning, bien qu'il serve de guide précieux, ne doit pas être considéré comme un ensemble de règles immuables. Notre expérience dans le développement du projet a clairement démontré que des imprévus peuvent survenir, que ce soit en raison de délais dans l'obtention de données des parties prenantes ou de difficultés techniques inattendues. La flexibilité et l'adaptabilité sont des qualités cruciales dans la gestion de projets, permettant d'ajuster le planning en fonction des réalités du terrain. 
+\subsection{Technologies et outils utilisés}
+\paragraph{}
+\vspace{-2em}
+Durant mon stage, j'ai utilisé plusieurs technologies et outils.\\
+\paragraph{}
+\vspace{-2em}
+\textbf{Développement}:
+\begin{itemize}
+    \item \textbf{Langage de programmation}: Python 3.10, PostgreSQL 13.4
+    \item \textbf{IDE\footnote{Integrated Development Environment, une suite de logiciel qui fournit des outils essentiels pour le développement des logiciels}}: Visual Studio Code, DataGrip
+    \item \textbf{Service de cloud}: Amazon Web Services
+\end{itemize}
+
+\paragraph{}
+\vspace{-2em}
+    \textbf{Bureautique}:
+    \begin{itemize}
+        \item \textbf{La suite Microsoft Office}: pour rédiger les rapports, sortir des fichiers Excel et
+        faire le planning: Microsoft Word, 
+        \item \textbf{\LaTeX}: Pour rédiger ce rapport de stage
+        \item \textbf{Suite de productivité Salesforce}: \textit{Quip} pour la prise de notes partagéss et \textit{Slack} pour la communication interne 
+        \item \textbf{Présentation}: Microsoft PowerPoint
+    \end{itemize}
+\paragraph{}
+\vspace{-2em}
+    \textbf{Système de contrôle de version}: Amazon Code\footnote{Un service interne de contrôle de version développé par Amazon}
+\paragraph{}
+\vspace{-2em}
+    \textbf{Gestion des tâches}: Trello\footnote{Un outil de gestion de projet en ligne, inspiré par la méthode Kanban de
+    Toyota}, Notion\footnote{Une application de prise de notes, de bases de données, des tableaux Kanban, de wikis, de calendriers et de rappels}
+
+\subsection{Contributions}
+\paragraph{}
+\vspace{-2em}
+Au cours de ce projet, mes contributions ont été axées sur le développement, avec la réalisation des différentes étapes par mes propres moyens. En tant que membre actif de l'équipe, j'ai assumé la responsabilité de la mise en œuvre des développements. 
+\paragraph{}
+\vspace{-2em}
+Par ailleurs, il est important de souligner que la collaboration avec mon manager a été cruciale. Son soutien m'a été particulièrement précieux dans la collecte des données nécessaires auprès de nos parties prenantes. Grâce à cette collaboration efficace, nous avons pu surmonter les défis liés à l'obtention des informations essentielles pour le projet, consolidant ainsi notre démarche collaborative au sein de l'équipe.
+\paragraph{}
+\vspace{-2em}
+À la fin de mon stage, j'ai déjà construit un flux stable de mon travail quotidien, et il existe des processus constants à suivre. La personne qui me remplace
+pourrait directement reprendre mon travail. Je vais aussi l'intégrer pour
+qu'elle puisse continuer doucement mon travail sans confusion de sa part.
 \subparagraph{Un sous-paragraphe}
 Lorem ipsum dolor sit amet
 \section*{Une section non numérotée}
