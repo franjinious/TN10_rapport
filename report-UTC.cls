@@ -2,7 +2,7 @@
 
 \LoadClass[a4paper,12pt]{article}
 
-\usepackage[francais]{babel} % Package babel pour le français
+\usepackage[french]{babel} % Package babel pour le français
 \frenchbsetup{StandardLists=true} %Pour redéfinir les itemize malgré babel
 \usepackage[T1]{fontenc}    % Package pour les accentuations
 \usepackage[utf8]{inputenc}  % Français

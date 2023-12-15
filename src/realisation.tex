@@ -1,0 +1,83 @@
+\section{Réalisation}
+INTRODUCTION DES MODELE!
+\subsection{Rassemblement des données et exécution des modèles }
+\subsubsection{Contexte}
+\paragraph{}
+\vspace{-2em}
+
+
+Une liste non ordonnée :
+\begin{itemize}
+    \item Un élément de niveau 1;
+    \begin{itemize}
+        \item Un élément de niveau deux
+        \begin{itemize}
+            \item Un élément de niveau trois;
+            \item Un second élément de niveau trois.
+        \end{itemize}
+        \item Retour au niveau deux.
+    \end{itemize}
+    \item Un autre élément de niveau 1.
+\end{itemize}
+
+\subsection{Application du \textit{Mapping}}
+\subsubsection{Contexte}
+\paragraph{}
+\vspace{-2em}
+Dans le cadre de la définition des régions, nous cherchons à trouver le centre de distribution principal (\textbf{Mothership}) pour chaque code postal à cinq chiffres (zip5) dans un pays, et les codes postaux partageant le même mothership formeraient ainsi une région. Dans ce cas, disposer d'une carte pour visualiser l'apparence des régions nous aiderait à évaluer les décisions prises par les modèles.
+\paragraph{}
+\vspace{-2em}
+Au début, nous avons utilisé l'outil analytique interne \textit{FA} pour réaliser le mappage des motherships au niveau des codes postaux (zip5). Cet outil interne offre la possibilité de créer des cartes visuelles enrichies, permettant l'utilisation de couleurs distinctes et de légendes pour représenter chaque catégorie de manière claire et intuitive.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.4\textwidth]{Graphismes-UTC/logos/Amazon/fa_exemple.png}
+  \caption{Exemple d'une carte par \textit{FA}}
+\end{figure}
+
+\paragraph{}
+\vspace{-2em}
+Cependant, nous avons rapidement identifié deux problèmes majeurs :
+\begin{itemize}
+    \item Il existe un format strict pour le fichier d'entrée, et le traitement des données en lui-même prend du temps
+    \begin{figure}[H]
+  \centering
+  \includegraphics[width=0.5\textwidth]{Graphismes-UTC/logos/Amazon/fa_input.png}
+  \caption{Exemple d'un fichier d'entrée}
+\end{figure}
+
+    \item Comme nous réalisions le mappage pour l'ensemble du pays, l'outil FA a tendance à être instable pour des cas comme l'Allemagne (DE) où nous avons un grand nombre de codes postaux.
+\end{itemize}
+
+\subsubsection{Mission}
+\paragraph{}
+\vspace{-2em}
+La mission était particulièrement axée sur la création d'un outil automatisé visant à simplifier et à rendre efficace le processus de visualisation des données. L'objectif était de concevoir une solution qui élimine le besoin d'une intervention manuelle, permettant ainsi une génération automatique de visualisations. 
+
+\subsubsection{Action}
+
+\subsubsubsection{Outils et techniques utilisés}
+\paragraph{}
+\vspace{-2em}
+Pour automatiser complètement le processus, la mise en place d'une plateforme avec un serveur dédié était nécessaire. Cette infrastructure a été cruciale pour héberger l'application et assurer sa disponibilité continue. 
+\paragraph{}
+\vspace{-2em}
+Heureusement, Amazon a mis en place une plateforme interne \textit{DasBoard} qui nous permet de créer des applications et de gérer les versions.
+
+\paragraph{}
+\vspace{-2em}
+DasBoard est une plateforme d'orchestration de travaux distribuée conçue pour les applications de modélisation développées par les chercheurs en recherche. Elle automatise la configuration de l'infrastructure logicielle (ressources AWS, paquet de code, ensemble de versions et pipelines de déploiement continu) pour administrer leurs applications avec une interface utilisateur unifiée. Elle favorise le partage d'applications avec d'autres utilisateurs, tout en facilitant l'intégration d'applications via les flux de travail DasBoard. Cette plateforme offre une interface utilisateur pour n'importe quel outil en ligne de commande. Ces outils en ligne de commande sont appelés "Applications" dans le contexte de DasBoard.
+
+\paragraph{}
+\vspace{-2em}
+Pour la construction de l'application, le choix du langage Python pour ce projet s'est révélé judicieux en raison de ses nombreuses bibliothèques pratiques et de sa réputation bien établie pour ses performances en matière de traitement de données. Python offre un écosystème riche de bibliothèques spécialisées qui facilitent le développement rapide et efficace d'applications axées sur la manipulation et l'analyse de données. 
+
+\subsubsubsection{Première version}
+\paragraph{}
+\vspace{-2em}
+
+
+\subparagraph{Un sous-paragraphe}
+Lorem ipsum dolor sit amet
+
+\subsection{Analyses approfondies sur le business}
