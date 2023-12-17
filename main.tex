@@ -6,26 +6,29 @@
 \usepackage{subcaption}
 \usepackage{url}
 \usepackage[sorting=none]{biblatex}
-\addbibresource{/Users/jpengyu/Documents/personal/TN10_rapport/reference.bib}
+\usepackage[french]{babel}
+\addbibresource{reference}
 
-\usepackage{titlesec}
+% \usepackage{titlesec}
 
-\titleclass{\subsubsubsection}{straight}[\subsection]
+% \titleclass{\subsubsubsection}{straight}[\subsection]
 
-\newcounter{subsubsubsection}[subsubsection]
-\renewcommand\thesubsubsubsection{\thesubsubsection.\arabic{subsubsubsection}}
-\titleformat{\subsubsubsection}
-  {\normalfont\normalsize\bfseries}{\thesubsubsubsection}{1em}{}
-\titlespacing*{\subsubsubsection}
-{1.2\parindent}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+% \newcounter{subsubsubsection}[subsubsection]
+% \renewcommand\thesubsubsubsection{\thesubsubsection.\arabic{subsubsubsection}}
+% \titleformat{\subsubsubsection}
+%   {\normalfont\normalsize\bfseries}{\thesubsubsubsection}{1em}{}
+% \titlespacing*{\subsubsubsection}
+% {1.2\parindent}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
 
-\makeatletter
-\def\toclevel@subsubsubsection{4}
-\def\l@subsubsubsection{\@dottedtocline{4}{7em}{4em}}
-\makeatother
+% \makeatletter
+% \def\toclevel@subsubsubsection{4}
+% \def\l@subsubsubsection{\@dottedtocline{4}{7em}{4em}}
+% \makeatother
 
-\setcounter{secnumdepth}{4}
-\setcounter{tocdepth}{4}
+% \setcounter{secnumdepth}{4}
+% \setcounter{tocdepth}{4}
+
+
 % Pour retirer le thème couleur UTC,
 %   Commenter la ligne précédente
 %   Décommenter la ligne dessous
@@ -38,7 +41,7 @@
 
 \begin{document}
 \setlength{\marginparwidth}{2cm}
-\usepackage[french]{babel}
+
 
 %\onehalfspacing  % 设置1.5倍行距
 

@@ -56,7 +56,10 @@ La mission était particulièrement axée sur la création d'un outil automatis�
 
 \subsubsection{Action}
 
-\subsubsubsection{Outils et techniques utilisés}
+\paragraph{}
+\vspace{-2em}
+{\large\textbf{{Outils et techniques utilisés}}}
+
 \paragraph{}
 \vspace{-2em}
 Pour automatiser complètement le processus, la mise en place d'une plateforme avec un serveur dédié était nécessaire. Cette infrastructure a été cruciale pour héberger l'application et assurer sa disponibilité continue. 
@@ -72,10 +75,91 @@ DasBoard est une plateforme d'orchestration de travaux distribuée conçue pour 
 \vspace{-2em}
 Pour la construction de l'application, le choix du langage Python pour ce projet s'est révélé judicieux en raison de ses nombreuses bibliothèques pratiques et de sa réputation bien établie pour ses performances en matière de traitement de données. Python offre un écosystème riche de bibliothèques spécialisées qui facilitent le développement rapide et efficace d'applications axées sur la manipulation et l'analyse de données. 
 
-\subsubsubsection{Première version}
+\paragraph{}
+\vspace{-2em}
+{\large\textbf{{Première version}}}
+\paragraph{}
+\vspace{-2em}
+Dans la première phase, notre vision consiste à créer une carte au format image pour visualiser le mappage dans chaque pays. Cette approche permettra une représentation graphique claire et intuitive du maillage géographique, offrant ainsi une vue d'ensemble de la répartition des régions définies.
+\paragraph{}
+\vspace{-2em}
+La première version de l'application vise à établir une structure générale, un flux de travail complet, et une application fonctionnelle sans erreurs. Pour atteindre cet objectif, la première étape consiste à traiter les données à partir de la sortie des modèles, en extrayant les informations nécessaires. Ensuite, il est essentiel de préparer les données finales en ajoutant des informations géographiques pertinentes. Enfin, la phase de réalisation du mappage intervient, utilisant des bibliothèques spécialisées pour créer une représentation visuelle du maillage géographique. 
+
+\paragraph{}
+\vspace{-2em}
+Pour le traitement des données, vu que dans une première phase, nous avons tenté d'utiliser le modèle Polaris, dont la sortie comprend les unités de différentes catégories, de la source (FC) à la destination (DS), j'ai entrepris de calculer la somme de chaque catégorie, puis réalisé une comparaison entre elles. Le processus débute en lisant le fichier \texttt{nd\_solution.csv} dans un \texttt{DataFrame} Pandas, un outil puissant de manipulation de données en Python. Une fois les données chargées, la tâche consiste à regrouper les informations en fonction de différents champs et à agréger la colonne "units" en faisant la somme de ses valeurs par la fonction \texttt{groupby} fournie par \texttt{Pandas.DataFrame}. 
+\paragraph{}
+\vspace{-2em}
+Après cette étape, nous avons identifié la meilleure FC pour chaque DS (destination). Pour obtenir la meilleure FC pour chaque code postal, il a été nécessaire de fusionner les données précédentes avec les paires zip-ds fournies par notre partie prenante. Ces informations sont stockées dans le \texttt{S3 bucket} de notre compte \texttt{AWS}, car les exigences de \textit{DasBoard} ne nous autorisent pas à enregistrer des fichiers prédéfinis.
+
+\paragraph{}
+\vspace{-2em}
+Pour ce faire, j'ai créeé une fonction \texttt{get\_s3}. Cette fonction récupère un fichier depuis un \texttt{S3 bucket} en utilisant le SDK AWS \texttt{boto3}. Elle nécessite le nom du {bucket}, un \texttt{ARN} de rôle \texttt{IAM} avec accès, et le nom du fichier (clé) à récupérer. En assumant le rôle, elle obtient des informations d'identification temporaires. Ensuite, elle utilise un client S3 pour récupérer le fichier spécifié. La fonction prend également en compte le format du fichier (CSV, JSON, ou GeoJSON) pour lire son contenu dans un DataFrame \texttt{Pandas} ou \texttt{GeoPandas}. 
+
+\paragraph{}
+\vspace{-2em}
+En effectuant une simple fusion (\texttt{merge}) de ces ensembles de données, nous avons obtenu le mapping final entre les codes postaux et les FCs, établissant ainsi une correspondance optimale entre les zones géographiques et les centres de traitement logistique. 
+\paragraph{}
+\vspace{-2em}
+Dans l'exemple de la carte précédente, chaque code postal est représenté par un polygone. Sa forme et sa localisation sont généralement définies par un fichier \texttt{JSON} ou \texttt{GeoJSON}. Pour des raisons de sécurité et de conformité, ces données sont fournies sur notre plateforme interne. En effectuant une simple fusion(\texttt{merge}) sur le code postal, j'ai obtenu le \texttt{DataFrame} final qui associe chaque code postal à son polygone correspondant.
+
+\paragraph{}
+\vspace{-2em}
+Notre objectif était de créer une image pour chaque pays, et la bibliothèque \texttt{GeoPandas} m'a permis d'atteindre cet objectif de manière efficace. En utilisant \texttt{GeoPandas}, j'ai pu manipuler et visualiser les données géographiques, représentant ainsi graphiquement les polygones associés à chaque code postal. 
+
+\paragraph{}
+\vspace{-2em}
+{\large\textbf{Deuxième version}}
+\paragraph{}
+\vspace{-2em}
+Bien que la première version ait été bien accueillie par mon manager, j'ai décidé d'aller plus loin, car je me suis rendu compte que la visibilité de chaque pays était limitée en raison de la taille de l'image. Avec l'ajout des couleurs, il était parfois même plus difficile d'identifier chaque catégorie. Dans ce contexte, j'ai pensé à créer une nouvelle version qui permettrait aux utilisateurs de zoomer pour examiner une région spécifique.
 \paragraph{}
 \vspace{-2em}
 
+Après avoir exploré cette problématique, j'ai identifié une bibliothèque qui me permettrait de réaliser cet objectif : \texttt{Folium}. \texttt{Folium} est une bibliothèque Python qui facilite la création de cartes interactives basées sur des données géospatiales. Son intégration avec d'autres bibliothèques telles que \texttt{Leaflet.js} permet d'ajouter des fonctionnalités de zoom et de panoramique, offrant ainsi une expérience utilisateur améliorée pour l'exploration de données géographiques.
+
+\begin{verbatim}
+    *** exemple de l'utilisation ***
+    import folium
+    # Create a map centered on a specific location
+    mymap = folium.Map(location=[37.7749, -122.4194], zoom_start=12)
+    # Add a marker with a popup message
+    folium.Marker(
+        location=[37.7749, -122.4194],
+        popup='San Francisco, CA',
+        icon=folium.Icon(color='blue')
+    ).add_to(mymap)
+    # Save the map as an HTML file
+    mymap.save('example_map.html')
+\end{verbatim}
+
+\paragraph{}    
+\vspace{-2em}
+Lors de l'utilisation de cette bibliothèque, il est essentiel de mettre en place une fonction dédiée à la génération d'un ensemble de couleurs ainsi qu'une autre fonction spécifiquement dédiée à la définition de styles. La première fonction sert à créer une palette de couleurs harmonieuse et distincte, tandis que la seconde permet de personnaliser les styles d'éléments graphiques tels que les marqueurs, les lignes ou les polygones sur la carte interactive. 
+
+\paragraph{}
+\vspace{-2em}
+Dans ce cas-là, j'ai créeé deux fonctions : \texttt{generate\_colors} et \texttt{style\_function}. 
+\paragraph{}
+\vspace{-2em}
+La fonction \texttt{generate\_colors} génère de manière automatisée un ensemble de couleurs distinctes à partir d'une liste de catégories fournie en paramètre. Elle utilise la colormap \texttt{'tab20'} de \texttt{Matplotlib}, qui contient 20 couleurs prédéfinies, en sélectionnant le nombre de couleurs en fonction du nombre de catégories. En utilisant une compréhension de liste, elle itère à travers la colormap, convertit les valeurs RGB en codes couleur hexadécimaux, puis crée un dictionnaire associant chaque catégorie à sa couleur respective. Ce dictionnaire est ensuite renvoyé par la fonction. Ainsi, elle simplifie le processus d'attribution de couleurs distinctes et cohérentes à chaque catégorie pour des graphiques ou d'autres visualisations.
+
+\paragraph{}
+\vspace{-2em}
+Cette fonction, nommée \texttt{style\_function}, stylise les éléments sur une carte en fonction de leur catégorie source. Elle prend un élément en paramètre, extrait la valeur de la propriété "source" des propriétés de cet élément, puis utilise le dictionnaire \texttt{category\_colors} (généré ailleurs) pour obtenir la couleur attribuée à cette catégorie source. Si la catégorie n'est pas présente dans le dictionnaire, elle utilise la couleur "gris" par défaut. La fonction retourne un dictionnaire avec des propriétés de style telles que \texttt{fillColor} (provenant de \texttt{category\_colors}), \texttt{fillOpacity}, \texttt{color}, et \texttt{weight}. 
+
+\paragraph{}
+\vspace{-2em}
+{\large\textbf{Finalisation}}
+\paragraph{}
+\vspace{-2em}
+Jusqu'à présent, l'application a pris une forme claire et a été déployée en production. Lors de l'examen complet de l'application, une nouvelle fonctionnalité a été proposée. Il était nécessaire d'ajouter des repères pour indiquer les emplacements de nos centres de traitement logistique (FC), ainsi que de générer des données sur le pourcentage de volume de chaque FC dans son pays et la distance moyenne entre cet FC et tous les codes postaux qu'il couvre.
+\paragraph{}
+\vspace{-2em}
+Pour intégrer des repères, une approche directe a été adoptée en utilisant la fonction \texttt{folium.Marker} fournie par la bibliothèque \texttt{folium}. Cette fonction prend en entrée les coordonnées de latitude et de longitude de chaque repère à ajouter. Les repères fournissent également des informations contextuelles, telles que le nom du repère, lorsqu'on survole le repère avec la souris.
+\paragraph{}
+\vspace{-2em}
+Il reste donc
 
 \subparagraph{Un sous-paragraphe}
 Lorem ipsum dolor sit amet
