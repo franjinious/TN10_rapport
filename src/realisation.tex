@@ -41,10 +41,10 @@ Cependant, nous avons rapidement identifié deux problèmes majeurs :
 \begin{itemize}
     \item Il existe un format strict pour le fichier d'entrée, et le traitement des données en lui-même prend du temps
     \begin{figure}[H]
-  \centering
-  \includegraphics[width=0.5\textwidth]{Graphismes-UTC/logos/Amazon/fa_input.png}
-  \caption{Exemple d'un fichier d'entrée}
-\end{figure}
+    \centering
+    \includegraphics[width=0.5\textwidth]{Graphismes-UTC/logos/Amazon/fa_input.png}
+    \caption{Exemple d'un fichier d'entrée}
+    \end{figure}
 
     \item Comme nous réalisions le mappage pour l'ensemble du pays, l'outil FA a tendance à être instable pour des cas comme l'Allemagne (DE) où nous avons un grand nombre de codes postaux.
 \end{itemize}
@@ -106,6 +106,11 @@ Dans l'exemple de la carte précédente, chaque code postal est représenté par
 \paragraph{}
 \vspace{-2em}
 Notre objectif était de créer une image pour chaque pays, et la bibliothèque \texttt{GeoPandas} m'a permis d'atteindre cet objectif de manière efficace. En utilisant \texttt{GeoPandas}, j'ai pu manipuler et visualiser les données géographiques, représentant ainsi graphiquement les polygones associés à chaque code postal. 
+    \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Graphismes-UTC/logos/Amazon/coverage_de.png}
+    \caption{Exemple d'un plan de l'Allemagne}
+    \end{figure}
 
 \paragraph{}
 \vspace{-2em}
@@ -147,6 +152,11 @@ La fonction \texttt{generate\_colors} génère de manière automatisée un ensem
 \paragraph{}
 \vspace{-2em}
 Cette fonction, nommée \texttt{style\_function}, stylise les éléments sur une carte en fonction de leur catégorie source. Elle prend un élément en paramètre, extrait la valeur de la propriété "source" des propriétés de cet élément, puis utilise le dictionnaire \texttt{category\_colors} (généré ailleurs) pour obtenir la couleur attribuée à cette catégorie source. Si la catégorie n'est pas présente dans le dictionnaire, elle utilise la couleur "gris" par défaut. La fonction retourne un dictionnaire avec des propriétés de style telles que \texttt{fillColor} (provenant de \texttt{category\_colors}), \texttt{fillOpacity}, \texttt{color}, et \texttt{weight}. 
+    \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Graphismes-UTC/logos/Amazon/coverage_de_2.png}
+    \caption{Exemple d'un plan intéractif de l'Allemagne}
+    \end{figure}
 
 \paragraph{}
 \vspace{-2em}
@@ -159,7 +169,46 @@ Jusqu'à présent, l'application a pris une forme claire et a été déployée e
 Pour intégrer des repères, une approche directe a été adoptée en utilisant la fonction \texttt{folium.Marker} fournie par la bibliothèque \texttt{folium}. Cette fonction prend en entrée les coordonnées de latitude et de longitude de chaque repère à ajouter. Les repères fournissent également des informations contextuelles, telles que le nom du repère, lorsqu'on survole le repère avec la souris.
 \paragraph{}
 \vspace{-2em}
-Il reste donc
+Il reste donc à préparer les données géographiques de chaque entrepôt (FC) utilisé dans chaque pays et à les ajouter. Nous disposons déjà de ces données dans nos bases de données, et une requête simple m'a permis de récupérer tous les FCs concernés.
+
+\paragraph{}
+\vspace{-2em}
+L'approche que j'ai adoptée consiste à stocker les données de tous les centres de traitement logistique (FC) dans un fichier, puis à choisir les données nécessaires lors de la visualisation. Ce fichier est également téléchargé et stocké dans notre \texttt{S3 bucket}, et il peut simplement être mis à jour au besoin.
+
+\paragraph{}
+\vspace{-2em}
+Le deuxième besoin m'a exigé d'accéder à nos bases de données pour récupérer et calculer des métriques, car elles sont sujettes à des changements lorsque nous modifions des données d'entrée.
+
+\paragraph{}
+\vspace{-2em}
+Dans la plupart des scénarios habituels, j'aurais opté pour l'utilisation de la bibliothèque \texttt{psycopg2} afin d'accéder à la base de données. Cependant, en raison des exigences de conformité internes, cette bibliothèque n'est pas approuvée pour les développements chez Amazon. Avec cette limitation, j'ai dû opter une fois de plus pour l'utilisation des API \texttt{AWS}.
+\paragraph{}
+\vspace{-2em}
+J'ai créé ainsi une fonction, applée \texttt{get\_query}, qui s'appuie sur le SDK \texttt{AWS} pour effectuer une requête SQL sur un cluster Amazon Redshift. En assumant d'abord un rôle \texttt{IAM}, il instancie ensuite un client \texttt{Redshift} Data API pour exécuter la requête sur la base de données 'fulaccel' du cluster 'fulaccel'. Le suivi de l'état d'exécution est assuré, et une fois la requête terminée, les résultats sont extraits. Ces résultats sont ensuite structurés dans un \texttt{DataFrame} Pandas avant d'être renvoyés. Avec les requêtes SQL appropriées, les données finales sont récupérées et prêtes à être exportées dans un fichier Excel. Cependant, il est à noter que les requêtes SQL nécessitent différents traitements en France et en Espagne en raison de l'existence de territoires d'outre-mer.
+\paragraph{}
+\vspace{-2em}
+Dès que les données finales sont prêtes, elles sont exportées vers un fichier Excel pour être présentées en sortie. Cela est réalisé en utilisant la bibliothèque \texttt{xlsxwriter}.
+    \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{Graphismes-UTC/logos/Amazon/map_final.png}
+    \caption{Le plan final de l'Allemagne}
+    \end{figure}
+
+    \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{Graphismes-UTC/logos/Amazon/output_window.png}
+    \caption{La fenêtre des fichier de sortie}
+    \end{figure}
+
+{\large\textbf{{Flux de travail avec l'autre \textit{DasBoard} application}}}
+\paragraph{}
+\vspace{-2em}
+Le \textit{DasBoard} me permet également de créer un flux de travail pour exécuter des tâches consécutives. Étant donné que notre modèle Optimizer est déjà en production sur le \textit{DasBoard} et que nous utilisons ses résultats comme un fichier d'entrée pour l'application de cartographie, j'ai pu mettre en place un flux de travail intégrant ces deux applications.
+    \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Graphismes-UTC/logos/Amazon/workflow.png}
+    \caption{Le flux de travail etabli}
+    \end{figure}
 
 \subparagraph{Un sous-paragraphe}
 Lorem ipsum dolor sit amet
